@@ -16,10 +16,11 @@ require('./app/route/runescape.route.js')(app);
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Create a Server
-const server = app.listen(8081, function () {
+const port = process.env.PORT || 8081;
+
+const server = app.listen(port, function () {
 
   const host = server.address().address;
-  const port = server.address().port;
 
   console.log("App listening at http://%s:%s", host, port)
 });
