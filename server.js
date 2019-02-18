@@ -20,7 +20,7 @@ const port = process.env.PORT || 8081;
 
 const server = app.listen(port, function () {
 
-  const host = server.address().address;
+  const host = '0.0.0.0';
 
   console.log("App listening at http://%s:%s", host, port)
 });
