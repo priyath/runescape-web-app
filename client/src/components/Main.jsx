@@ -19,8 +19,8 @@ export default class Main extends React.Component {
 
   componentDidMount() {
     Promise.all([
-      fetch('http://localhost:3000/api/quests'),
-      fetch('http://localhost:3000/api/skills')
+      fetch('/api/quests'),
+      fetch('/api/skills')
     ])
     .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
     .then(([quests, skills]) => this.setState({
@@ -82,7 +82,7 @@ export default class Main extends React.Component {
       return filtered;
     }, []);
 
-    fetch('http://localhost:3000/api/eligible-quests', {
+    fetch('/api/eligible-quests', {
       method: 'post',
       headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
